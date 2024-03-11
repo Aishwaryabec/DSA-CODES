@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<math.h>
+#include<stdlib.h>
+void gcd_of_numbes(int m,int n);
+int main()
+{ int n,m;
+printf("enter the limits");
+scanf("%d %d",&m,&n);
+if(n>m){
+    printf("invalid input");
+}
+else{
+    gcd_of_numbers(m,n);
+
+}
+}
+void gcd_of_numbers(int m,int n)
+{
+    int t,g,lcm;
+     while(m<n)
+   {while(n>0)
+   {t=m%n;
+   m=n;
+   n=t;
+   }
+   g=m;
+   printf("gcd=%d",g);
+   lcm=(m*n)/g;
+   printf("lcm=%d",lcm);
+   m++;
+}
+}
