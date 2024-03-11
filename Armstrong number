@@ -1,0 +1,37 @@
+#include<stdio.h>
+#include<math.h>
+#include<stdlib.h>
+void armstrong_number(int m,int n);
+int main()
+{ int n,m;
+printf("enter the limits");
+scanf("%d%d",&m,&n);
+if(m<n){
+armstrong_number(m,n);
+}
+else
+{
+    printf("invalid input");
+    exit(0);
+}
+return 0;
+}
+void armstrong_number(int m,int n)
+{
+int t,sum=0,ld;
+while(m<=n)
+{
+    t=m,sum=0;
+    while(t>0)
+       {
+        ld=t%10;
+    sum=sum+(ld*ld*ld);
+    t=t/10;
+
+}
+if(sum==m)
+    printf("%d\n",m);
+    m++;
+    }
+
+}
