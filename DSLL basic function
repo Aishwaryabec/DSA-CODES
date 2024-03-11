@@ -1,0 +1,114 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+struct node
+{
+    double num;
+    struct number *llink;
+    struct number *rlink;
+};
+typedef struct node *NODE;
+
+NODE getnode()
+{
+    NODE nw;
+    nw=(NODE)malloc(sizeof(struct node));
+
+        return nw;
+
+}
+NODE getdata(NODE nw)
+{
+    scanf("%lf",&nw->num);
+    nw->llink=NULL;
+    nw->rlink=NULL;
+    return nw;
+}
+NODE insert_end(NODE head)
+{
+    NODE nw;
+    nw=getnode();
+    nw=getdata(nw);
+    if(head==NULL)
+    {
+        return nw;
+    }
+    else
+    {
+        NODE cur=head;
+        while(cur->rlink!=NULL)
+        {
+            cur=cur->rlink;
+        }
+        cur->rlink=nw;
+        nw->llink=cur;
+    }
+    return head;
+}
+void display(NODE head)
+{
+    NODE cur=head;
+    if(head==NULL)
+    {
+        return ;
+
+    }
+    else
+    {
+        while(cur!=NULL)
+        {printf("%0.2lf ",cur->num);
+        cur=cur->rlink;
+        }
+    }
+
+}
+void  reversedisplay(NODE head)
+{
+
+    if(head==NULL)
+    {
+        return ;
+
+    }
+    else
+    {
+        NODE cur=head;
+        while(cur->rlink!=NULL)
+        {
+         cur=cur->rlink;
+        }
+        NODE temp=cur;
+        while(temp!=NULL)
+        {
+            printf("%0.2lf ",temp->num);
+            temp=temp->llink;
+        }
+
+    }
+
+}
+
+int main()
+{
+   int n,i;
+    NODE head=NULL;
+   scanf("%d",&n);
+   if(n>0)
+   {
+    for(i=0;i<n;i++)
+    {
+        head=insert_end(head);
+    }
+       printf("DLL in forward direction:\n");
+       display(head);
+       printf("\n");
+       printf("\nDLL in reverse direction:\n");
+       reversedisplay(head);
+   }
+    else
+    {
+        printf("N should be positive.\n");
+    }
+    return 0;
+}
