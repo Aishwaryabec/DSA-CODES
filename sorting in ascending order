@@ -1,0 +1,47 @@
+#include<stdio.h>
+void read(int a[10],int n);
+void print(int a[10],int n);
+void sorting(int a[10],int n);
+main()
+{
+    int a[10],n;
+    printf("enter n");
+    scanf("%d",&n);
+    read(a,n);
+    sorting(a,n);
+    printf("after sorting:");
+    print(a,n);
+
+}
+void read(int a[10],int n)
+{ int i;
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+}
+void print(int a[10],int n)
+{
+    int i;
+    for(i=0;i<n;i++)
+    {
+        printf("%d\n",a[i]);
+    }
+}
+void sorting(int a[10],int n)
+{
+    int i,temp,j;
+    for(i=0;i<=n-1;i++)
+    {
+        for(j=0;j<=n-1-i;j++)
+        {
+            if(a[j]>a[j+1])
+            {
+                temp=a[j];
+                a[j]=a[j+1];
+                a[j+1]=temp;
+            }
+        }
+    }
+
+}
