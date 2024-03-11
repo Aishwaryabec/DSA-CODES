@@ -1,0 +1,19 @@
+#include<stdio.h>
+void copy(char str[10],char str1[10]);
+main()
+{
+    char str[10],str1[10];
+    printf("enter the 2 strings");
+    scanf("%s%s",str,str1);
+    copy(str,str1);
+}
+void copy(char str[10],char str1[10])
+{
+    int i;
+    for(i=0;str[i]!='\0';i++)
+    {
+        str1[i]=str[i];
+    }
+    printf("after copying:\n");
+    printf("str=%s\n str1=%s\n",str,str1);
+}
